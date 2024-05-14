@@ -10,8 +10,8 @@ namespace AutomateTestingLearningPlan
     {
         public static void Main(string[] args)
         {
-            Login TestLoginFeature = new Login();
-            TestLoginFeature.testLogin();
+            Login login = new Login();
+            login.testLogin();
 
         }
     }

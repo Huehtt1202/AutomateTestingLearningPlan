@@ -17,44 +17,55 @@ namespace AutomateTestingLearningPlan
             public string userName { get; set; }
             public string password { get; set; }
         }
-        public void FindElementOnLoginScreen()
+        public class ucLogin
         {
-            User _user = new User();
+            IWebDriver driver;
+            public void FormLogin(User _user)
+            {
+                /*User _user = new User();*/
+                //Go to login page
+                driver.Navigate().GoToUrl("https://app-v3.onluyen.vn/login");
+                //Find element userName             
+                IWebElement _userName = driver.FindElement(By.CssSelector("[type='text'][placeholder='Tên đăng nhập hoặc số điện thoại']"));
+                _userName.SendKeys(_user.userName);
+                //find element password
+                IWebElement password = driver.FindElement(By.CssSelector("[type='password'][placeholder='Mật khẩu']"));
+                password.SendKeys(_user.password);
+                //find element btn_login
+                IWebElement _loginbtn = driver.FindElement(By.ClassName("btn-login"));
+                _loginbtn.Click();
+                //Find field remember or forgot
+                IWebElement field_remember_forgot = driver.FindElement(By.ClassName("field-remember-forgot"));
+                //find field remember login
+                IWebElement remember_login = field_remember_forgot.FindElement(By.ClassName("left-field"));
+                //find field forgot password
+                IWebElement forgot_password = field_remember_forgot.FindElement(By.ClassName("right-field"));
+
+            }
+            [Test]
+            public void testLogin()
+            {
+                User teacher = new User();
+                teacher.userName = "huehtt34@ed.onluyen.vn";
+                teacher.password = "123123";
+                FormLogin(teacher);
+            }
+        }
+        public void FieldForgotPassword()
+        {
             //Go to login page
             driver.Navigate().GoToUrl("https://app-v3.onluyen.vn/login");
-            //Check title of page is correct 
-            Console.Write(driver.Title);
-            //StringAssert.Contains(driver.Title, "Onluyen");
-            //Find element userName             
-            IWebElement _userName = driver.FindElement(By.CssSelector("[type='text'][placeholder='Tên đăng nhập hoặc số điện thoại']"));
-            _userName.SendKeys(_user.userName);
-            //find element password
-            IWebElement password = driver.FindElement(By.CssSelector("[type='password'][placeholder='Mật khẩu']"));
-            password.SendKeys(_user.password);
-            //find element btn_login
-            IWebElement _loginbtn = driver.FindElement(By.ClassName("btn-login"));
-            _loginbtn.Click();
             //Find field remember or forgot
             IWebElement field_remember_forgot = driver.FindElement(By.ClassName("field-remember-forgot"));
-            //find field remember login
-            IWebElement remember_login = field_remember_forgot.FindElement(By.ClassName("left-field"));
             //find field forgot password
             IWebElement forgot_password = field_remember_forgot.FindElement(By.ClassName("right-field"));
+            forgot_password.Click();
 
         }
         [Test]
-        void testLogin()
+        public void testForgetPassword()
         {
-            User teacher = new User();
-            teacher.userName = "huehtt34@ed.onluyen.vn";
-            teacher.password = "123123";
-            FindElementOnLoginScreen();
-            _loginbtn.Click();
-        }
-        /*[Test]*/
-        void testForgetPassword()
-        {
-            forgot_password.Click();
+
         }
     }
 }
