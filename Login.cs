@@ -6,25 +6,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebDriverManager.DriverConfigs.Impl;
 
 namespace AutomateTestingLearningPlan
 {
     [TestFixture]
     public class Login : Init1
     {
+        [SetUp]
+        public void Init()
+        {
+            new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
+            //Go to login page
+            driver.Navigate().GoToUrl("https://app-v3.onluyen.vn/login");
+        }
+        [TearDown]
+        public void Clearup()
+        {
+            driver.Quit();
+        }
         public class User
         {
             public string userName { get; set; }
             public string password { get; set; }
         }
+/*
         public class ucLogin
-        {
+        {*/
             IWebDriver driver;
+            [Test]
             public void FormLogin(User _user)
             {
                 /*User _user = new User();*/
-                //Go to login page
-                driver.Navigate().GoToUrl("https://app-v3.onluyen.vn/login");
                 //Find element userName             
                 IWebElement _userName = driver.FindElement(By.CssSelector("[type='text'][placeholder='Tên đăng nhập hoặc số điện thoại']"));
                 _userName.SendKeys(_user.userName);
@@ -42,7 +55,6 @@ namespace AutomateTestingLearningPlan
                 IWebElement forgot_password = field_remember_forgot.FindElement(By.ClassName("right-field"));
 
             }
-            [Test]
             public void testLogin()
             {
                 User teacher = new User();
@@ -50,7 +62,7 @@ namespace AutomateTestingLearningPlan
                 teacher.password = "123123";
                 FormLogin(teacher);
             }
-        }
+        
         public void FieldForgotPassword()
         {
             //Go to login page
@@ -68,4 +80,8 @@ namespace AutomateTestingLearningPlan
 
         }
     }
+
+   /*ublic class Abc : Program1
+    {
+    }*/
 }
