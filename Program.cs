@@ -11,8 +11,6 @@ namespace AutomateTestingLearningPlan.Program
     {
         public static void Main(string[] args)
         {
-            Login login = new Login();
-            login.testLogin();
 
         }
     }

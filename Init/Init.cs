@@ -14,7 +14,8 @@ namespace AutomateTestingLearningPlan.Init
     {
         /*public IWebDriver driver;*/
         public IWebDriver driver = new ChromeDriver();
-        [TestFixtureSetUp]
+
+        [SetUp]
         public void SetUpTest()
         {
             //Select browser
@@ -25,7 +26,7 @@ namespace AutomateTestingLearningPlan.Init
             // extend monitor
             driver.Manage().Window.Maximize();
         }
-        [TestFixtureTearDown]
+        [TearDown]
         public void TearDownTest()
         {
             Thread.Sleep(1000);
