@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static AutomateTestingLearningPlan.Login;
+﻿using AutomateTestingLearningPlan.Testing;
 
 namespace AutomateTestingLearningPlan.Program
 {
@@ -11,7 +6,8 @@ namespace AutomateTestingLearningPlan.Program
     {
         public static void Main(string[] args)
         {
-
+            LeaderEducationPlaning lep = new LeaderEducationPlaning();
+            lep.CreateLEP();
         }
     }
 }

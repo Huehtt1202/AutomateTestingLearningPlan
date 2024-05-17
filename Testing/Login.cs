@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace AutomateTestingLearningPlan
+namespace AutomateTestingLearningPlan.Testing
 {
     [TestFixture("huehtt34@ed.onluyen.vn", "123123")]
     public class Login
@@ -90,7 +90,7 @@ namespace AutomateTestingLearningPlan
             //2. Enter password
             SeleniumMethod.EnterText(driver, By.CssSelector("[type='password'][placeholder='Mật khẩu']"), _user.password);
             // Select rememnber me
-            IWebElement rememberMe = driver.FindElement(By.ClassName("left-field"));
+            IWebElement rememberMe = driver.FindElement(By.Id("remember"));
             rememberMe.Click();
             // Login
             SeleniumMethod.Click(driver, By.ClassName("btn-login"));
