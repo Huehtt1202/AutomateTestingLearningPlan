@@ -20,12 +20,12 @@ namespace AutomateTestingLearningPlan.Testing
         /*private User userName;
         private User password;
         private User phoneNumber;*/
-        private readonly User userName;
-        private readonly User password;
-        public Login(string _userName, string _password /*User userName, User password*/)
+        private readonly User _userName;
+        private readonly User _password;
+        public Login(/*string _userName, string _password */User userName, User password)
         {
-            this.userName = userName;
-            this.password = password;
+            this._userName = userName;
+            this._password = password;
         }
         [SetUp]
         public void Init()
@@ -45,7 +45,7 @@ namespace AutomateTestingLearningPlan.Testing
             public string password { get; set; }
         }*/
         //IWebDriver driver;
-        [TestCase("Teacher login")]
+        [TestCase]
         public void ExercuteLogin(User _user)
         {
             //1. Enter userName

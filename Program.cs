@@ -6,8 +6,7 @@ namespace AutomateTestingLearningPlan.Program
     {
         public static void Main(string[] args)
         {
-            LeaderEducationPlaning lep = new LeaderEducationPlaning();
-            lep.CreateLEP();
+           
         }
     }
 }

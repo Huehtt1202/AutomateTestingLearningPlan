@@ -25,14 +25,10 @@ namespace AutomateTestingLearningPlan
             // one field checkbox
             driver.FindElement(locator).Click();
         }*/
-        public static void SingleSelectDynamicDropdown(IWebDriver driver, By locator, string text)
+        public static void SelectByIndex(IWebDriver driver, By locator, int no)
         {
-            //Click on combobox to open dropdown-pandel
-            driver.FindElement(locator).Click();
-            //Enter keyword on input field
-            driver.FindElement(locator).SendKeys(text);
-            //Select a options on drop-list
-            Dri
+            SelectElement selectOption = new SelectElement(driver.FindElement(locator));
+            selectOption.SelectByIndex(no);
         }
     }
 }
