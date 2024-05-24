@@ -22,7 +22,8 @@ namespace AutomateTestingLearningPlan.Testing
         private User phoneNumber;*/
         private readonly User _userName;
         private readonly User _password;
-        public Login(/*string _userName, string _password */User userName, User password)
+        private readonly User _user;
+        internal Login(/*string _userName, string _password */User userName, User password)
         {
             this._userName = userName;
             this._password = password;
