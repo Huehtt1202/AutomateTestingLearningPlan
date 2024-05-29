@@ -17,7 +17,7 @@ namespace AutomateTestingLearningPlan
         }
         public static void EnterText(IWebDriver driver, By locator, string text)
         {
-            driver.FindElement(locator).Clear();
+            driver.FindElement(locator).Click();
             driver.FindElement(locator).SendKeys(text);
         }
         /*public static void SelectedCheckBox(IWebDriver driver, By locator)

@@ -8,12 +8,15 @@ namespace AutomateTestingLearningPlan.Program
     {
         public static void Main(string[] args)
         {
-            int a = 2; int b = 3;
+            User user = new User();
+            Login login = new Login();
+            login.ExercuteLogin(user);
+            /*int a = 2; int b = 3;
             CountRef(ref a, ref b);
             int f, d, e;
-            CountOut(out f, out d);
+            CountOut(out f, out d);*/
         }
-        static void CountRef( ref int a, ref int b)
+        /*static void CountRef(ref int a, ref int b)
         {
             a++;
             int c = a + b;
@@ -25,6 +28,6 @@ namespace AutomateTestingLearningPlan.Program
             f++;
             int e = f + d;
             Console.WriteLine(e);
-        }
+        }*/
     }
 }

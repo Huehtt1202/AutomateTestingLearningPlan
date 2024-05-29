@@ -13,21 +13,22 @@ using System.Threading.Tasks;
 
 namespace AutomateTestingLearningPlan.Testing
 {
-    [TestFixture("huehtt34@ed.onluyen.vn", "123123")]
+    [TestFixture]
     public class Login
-    { 
+    {
         IWebDriver driver = new ChromeDriver();
         /*private User userName;
         private User password;
         private User phoneNumber;*/
-        private readonly User _userName;
-        private readonly User _password;
-        private readonly User _user;
-        internal Login(/*string _userName, string _password */User userName, User password)
+        /*private readonly User _userName;
+        private readonly User _password;*/
+        /*private readonly User _user;*/
+        /*internal Login(*//*string _userName, string _password *//*User userName, User password)
         {
             this._userName = userName;
             this._password = password;
-        }
+        }*/
+
         [SetUp]
         public void Init()
         {
@@ -40,21 +41,31 @@ namespace AutomateTestingLearningPlan.Testing
             // extend monitor
             driver.Manage().Window.Maximize();
         }
-       /* public class User
-        {
-            public string userName { get; set; }
-            public string password { get; set; }
-        }*/
+        /* public class User
+         {
+             public string userName { get; set; }
+             public string password { get; set; }
+         }*/
         //IWebDriver driver;
-        [TestCase]
-        public void ExercuteLogin(User _user)
+        //#region sử dụng testcase source
+        /*static User[] _user =
         {
+            new User[] { new user("huehtt34@ed.onluyen.vn", "123123") }
+        };*/
+        [Test]
+        /*[TestCaseSource(nameof(_user))]*/
+        [TestCase("huehtt34@ed.onluyen.vn", "123123")]
+        public void ExercuteLogin(User user)
+        {
+            //User user = new User();
             //1. Enter userName
-            SeleniumMethod.EnterText(driver, By.CssSelector("[type='text'][placeholder='Tên đăng nhập hoặc số điện thoại']"), _user.userName);
+            SeleniumMethod.EnterText(driver, By.CssSelector("[type='text'][placeholder='Tên đăng nhập hoặc số điện thoại']"), user.userName);
             //2. Enter password
-            SeleniumMethod.EnterText(driver, By.CssSelector("[type='text'][placeholder='Tên đăng nhập hoặc số điện thoại']"), _user.password);
+            SeleniumMethod.EnterText(driver, By.CssSelector("[type='text'][placeholder='Tên đăng nhập hoặc số điện thoại']"), user.password);
             //3. Click login
             SeleniumMethod.Click(driver, By.ClassName("btn-login"));
+            string url = driver.Url.ToString();
+            Assert.AreEqual("https://app-v3.onluyen.vn/school-teacher", url);
         }
         [TestCase("0367520724")]
         public void FieldForgotPassword(string phoneNumber)

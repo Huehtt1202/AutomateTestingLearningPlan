@@ -19,6 +19,7 @@ namespace AutomateTestingLearningPlan.Testing
         [SetUp]
         public void Init()
         {
+            Login login = new Login();
             login.ExercuteLogin(user);
             this.user = new User();
             user.userName = "huehtt34@ed.onluyen.vn";
