@@ -11,5 +11,6 @@ namespace AutomateTestingLearningPlan.Pages
     {
         public string userName { get; set; }
         public string password { get; set; }
+        
     }
 }

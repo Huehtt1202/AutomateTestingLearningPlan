@@ -17,18 +17,7 @@ namespace AutomateTestingLearningPlan.Testing
     public class Login
     {
         IWebDriver driver = new ChromeDriver();
-        /*private User userName;
-        private User password;
-        private User phoneNumber;*/
-        /*private readonly User _userName;
-        private readonly User _password;*/
-        /*private readonly User _user;*/
-        /*internal Login(*//*string _userName, string _password *//*User userName, User password)
-        {
-            this._userName = userName;
-            this._password = password;
-        }*/
-
+        public Login() { }
         [SetUp]
         public void Init()
         {
@@ -41,27 +30,16 @@ namespace AutomateTestingLearningPlan.Testing
             // extend monitor
             driver.Manage().Window.Maximize();
         }
-        /* public class User
-         {
-             public string userName { get; set; }
-             public string password { get; set; }
-         }*/
-        //IWebDriver driver;
-        //#region sử dụng testcase source
-        /*static User[] _user =
-        {
-            new User[] { new user("huehtt34@ed.onluyen.vn", "123123") }
-        };*/
         [Test]
-        /*[TestCaseSource(nameof(_user))]*/
-        [TestCase("huehtt34@ed.onluyen.vn", "123123")]
-        public void ExercuteLogin(User user)
+        public void ExercuteLogin()
         {
-            //User user = new User();
+            User leader = new User();
+            leader.userName = "huehtt34@ed.onluyen.vn";
+            leader.password = "123123";
             //1. Enter userName
-            SeleniumMethod.EnterText(driver, By.CssSelector("[type='text'][placeholder='Tên đăng nhập hoặc số điện thoại']"), user.userName);
+            SeleniumMethod.EnterText(driver, By.CssSelector("[type='text'][placeholder='Tên đăng nhập hoặc số điện thoại']"), leader.userName);
             //2. Enter password
-            SeleniumMethod.EnterText(driver, By.CssSelector("[type='text'][placeholder='Tên đăng nhập hoặc số điện thoại']"), user.password);
+            SeleniumMethod.EnterText(driver, By.CssSelector("[type='text'][placeholder='Tên đăng nhập hoặc số điện thoại']"), leader.password);
             //3. Click login
             SeleniumMethod.Click(driver, By.ClassName("btn-login"));
             string url = driver.Url.ToString();
