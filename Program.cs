@@ -10,8 +10,18 @@ namespace AutomateTestingLearningPlan.Program
     {
         public static void Main(string[] args)
         {
-            Login login = new Login();
-            login.ExercuteLogin();
-        }  
+            /*try
+            {
+                Login login = new Login();
+                login.Init();
+                login.LoginByUser(User user);
+                login.Clearup();
+            }
+            catch (Exception ex)
+            {
+                Login login = new Login();
+                login.Clearup();
+            }*/
+        }
     }
 }

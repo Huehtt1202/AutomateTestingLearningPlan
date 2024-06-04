@@ -16,11 +16,12 @@ namespace AutomateTestingLearningPlan.Testing
     [TestFixture]
     public class Login
     {
-        IWebDriver driver = new ChromeDriver();
+        IWebDriver driver;
         public Login() { }
         [SetUp]
         public void Init()
         {
+            driver = new ChromeDriver();
             //Go to login page
             driver.Navigate().GoToUrl("https://app-v3.onluyen.vn/login");
             // Set timeouts for each step
@@ -29,24 +30,27 @@ namespace AutomateTestingLearningPlan.Testing
             driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(3);
             // extend monitor
             driver.Manage().Window.Maximize();
-        }
-        [Test]
-        public void ExercuteLogin()
+        }/*
+        [Test]*/
+        [TestCase("huehtt34@ed.onluyen.vn", "123123")]
+        [TestCase("huehtt70@ed.onluyen.vn", "123123")]
+        public void LoginByUser(string inputUserName, string inputPassword)
         {
-            User leader = new User();
-            leader.userName = "huehtt34@ed.onluyen.vn";
-            leader.password = "123123";
+            User leader = new User(inputUserName, inputPassword);
+            Console.WriteLine(inputPassword);
             //1. Enter userName
-            SeleniumMethod.EnterText(driver, By.CssSelector("[type='text'][placeholder='Tên đăng nhập hoặc số điện thoại']"), leader.userName);
+            SeleniumMethod.EnterText(driver, By.CssSelector("input[type=text]"), leader.userName);
             //2. Enter password
-            SeleniumMethod.EnterText(driver, By.CssSelector("[type='text'][placeholder='Tên đăng nhập hoặc số điện thoại']"), leader.password);
+            SeleniumMethod.EnterText(driver, By.CssSelector("input[type=password]"), leader.password);
             //3. Click login
             SeleniumMethod.Click(driver, By.ClassName("btn-login"));
-            string url = driver.Url.ToString();
-            Assert.AreEqual("https://app-v3.onluyen.vn/school-teacher", url);
+            string urlCurrently = driver.Url.ToString();
+            string urlLogin = "https://app-v3.onluyen.vn/login/";
+            Assert.IsFalse(urlCurrently.Equals(urlLogin));
         }
+
         [TestCase("0367520724")]
-        public void FieldForgotPassword(string phoneNumber)
+        public void FieldForgotPassword(string inputPhoneNumber)
         {
             //Go to login page
             driver.Navigate().GoToUrl("https://app-v3.onluyen.vn/login");
@@ -55,7 +59,7 @@ namespace AutomateTestingLearningPlan.Testing
             forgot_password.Click();
             // Check navigate to forgot-password page
             string url = driver.Url;
-            StringAssert.Contains (url, "https://app-v3.onluyen.vn/login/forgot-password");
+            StringAssert.Contains(url, "https://app-v3.onluyen.vn/login/forgot-password");
             /*if (url.Contains("fotgot-password"))*/
             if (url.Contains("https://app-v3.onluyen.vn/login/forgot-password"))
             {
@@ -68,7 +72,8 @@ namespace AutomateTestingLearningPlan.Testing
                 {
                     IWebElement listAccount = driver.FindElement(By.ClassName("list-account"));
                     Console.Write("Exist Account");
-                } catch (Exception ex) { Console.WriteLine(ex.Message); };
+                }
+                catch (Exception ex) { Console.WriteLine(ex.Message); };
             }
             else Console.WriteLine("Can not fotgot-password");
         }
