@@ -30,8 +30,8 @@ namespace AutomateTestingLearningPlan.Testing
             driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(3);
             // extend monitor
             driver.Manage().Window.Maximize();
-        }/*
-        [Test]*/
+        }
+        [Test]
         [TestCase("huehtt34@ed.onluyen.vn", "123123")]
         [TestCase("huehtt70@ed.onluyen.vn", "123123")]
         public void LoginByUser(string inputUserName, string inputPassword)
@@ -48,34 +48,32 @@ namespace AutomateTestingLearningPlan.Testing
             string urlLogin = "https://app-v3.onluyen.vn/login/";
             Assert.IsFalse(urlCurrently.Equals(urlLogin));
         }
-
+        /// <summary>
+        /// Happy case forgot password 
+        /// </summary>
+        /// <param name="inputPhoneNumber"></param>
+        [Test]
         [TestCase("0367520724")]
-        public void FieldForgotPassword(string inputPhoneNumber)
+        public void ForgotPassword(string inputPhoneNumber)
         {
-            //Go to login page
-            driver.Navigate().GoToUrl("https://app-v3.onluyen.vn/login");
-            //find field forgot password
-            IWebElement forgot_password = driver.FindElement(By.ClassName("right-field"));
-            forgot_password.Click();
-            // Check navigate to forgot-password page
-            string url = driver.Url;
-            StringAssert.Contains(url, "https://app-v3.onluyen.vn/login/forgot-password");
-            /*if (url.Contains("fotgot-password"))*/
-            if (url.Contains("https://app-v3.onluyen.vn/login/forgot-password"))
+            SeleniumMethod.Click(driver, By.ClassName("right-field"));
+            string url = driver.Url.ToString();
+            User user = new User(inputPhoneNumber);
+            // enter phone number into field
+            SeleniumMethod.EnterText(driver, By.TagName("input"), inputPhoneNumber);
+            // search account
+            SeleniumMethod.Click(driver, By.TagName("button"));
+            // Check action search
+            try
             {
-                // enter phone number
-                SeleniumMethod.EnterText(driver, By.TagName("input"), phoneNumber);
-                // search account
-                SeleniumMethod.Click(driver, By.TagName("button"));
-                // Check action search
-                try
-                {
-                    IWebElement listAccount = driver.FindElement(By.ClassName("list-account"));
-                    Console.Write("Exist Account");
-                }
-                catch (Exception ex) { Console.WriteLine(ex.Message); };
+                IWebElement listAccount = driver.FindElement(By.ClassName("list-account"));
+                IWebElement item = listAccount.FindElement(By.TagName("div"));
+                item.Click();
+
+                Assert.IsNotNull(listAccount);
             }
-            else Console.WriteLine("Can not fotgot-password");
+            catch (Exception ex) { Console.WriteLine(ex.Message); };
+
         }
         [TestCase("Check remember me")]
         public void testRememberMe(User _user)
