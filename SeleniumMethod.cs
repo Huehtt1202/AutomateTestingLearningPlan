@@ -20,6 +20,11 @@ namespace AutomateTestingLearningPlan
             driver.FindElement(locator).Click();
             driver.FindElement(locator).SendKeys(text);
         }
+        public static void EnterNumber(IWebDriver driver, By locator, int text)
+        {
+            driver.FindElement(locator).Click();
+            driver.FindElement(locator).SendKeys(text);
+        }
         /*public static void SelectedCheckBox(IWebDriver driver, By locator)
         {
             // one field checkbox
