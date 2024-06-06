@@ -30,8 +30,8 @@ namespace AutomateTestingLearningPlan.Testing
             driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(3);
             // extend monitor
             driver.Manage().Window.Maximize();
-        }/*
-        [Test]*/
+        }
+        [Test]
         [TestCase("huehtt34@ed.onluyen.vn", "123123")]
         [TestCase("huehtt70@ed.onluyen.vn", "123123")]
         public void LoginByUser(string inputUserName, string inputPassword)
