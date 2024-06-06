@@ -14,10 +14,10 @@ using System.Threading.Tasks;
 namespace AutomateTestingLearningPlan.Testing
 {
     [TestFixture]
-    public class Login
+    public class LoginTest
     {
         IWebDriver driver;
-        public Login() { }
+        public LoginTest() { }
         [SetUp]
         public void Init()
         {
@@ -66,14 +66,23 @@ namespace AutomateTestingLearningPlan.Testing
             // Check action search
             try
             {
-                IWebElement listAccount = driver.FindElement(By.ClassName("list-account"));
-                IWebElement item = listAccount.FindElement(By.TagName("div"));
+                IWebElement listAccount = GetElement(By.ClassName("list-account"));
+                if (listAccount == null)
+                    return;
+                //phone number is exist account
+                IWebElement item = GetElement(By.TagName("div"));
+                if (item == null)
+                    return;
                 item.Click();
-
+                IWebElement popupGuid = driver.FindElement(By.TagName("app-modal-common"));
                 Assert.IsNotNull(listAccount);
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); };
 
+            //phone number is not exist account
+            IWebElement btnRegister = driver.FindElement(By.CssSelector("div.btn-register ng-star-inserted>button"));
+            IWebElement popupGuidRegister = driver.FindElement(By.TagName("app-modal-common"));
+            Assert.IsNotNull(btnRegister);
         }
         [TestCase("Check remember me")]
         public void testRememberMe(User _user)
@@ -93,6 +102,23 @@ namespace AutomateTestingLearningPlan.Testing
         {
             Thread.Sleep(2000);
             driver.Quit();
+        }
+
+        private IWebElement GetElement(By by)
+        {
+            try
+            {
+                IWebElement result = driver.FindElement(by);
+                return result;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        void RegisterAccount()
+        {
+
         }
     }
 }
