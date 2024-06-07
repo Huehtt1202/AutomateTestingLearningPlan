@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace AutomateTestingLearningPlan.Init
 {
+    [TestFixture]
     public class Init1
-    {
-        /*public IWebDriver driver;*/
+    { 
         public IWebDriver driver = new ChromeDriver();
 
         [SetUp]

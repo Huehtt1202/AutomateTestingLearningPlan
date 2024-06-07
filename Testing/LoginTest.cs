@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace AutomateTestingLearningPlan.Testing
 {
     [TestFixture]
-    public class LoginTest
+    public class LoginTest : Init1
     {
         IWebDriver driver;
         public LoginTest() { }
@@ -53,7 +53,6 @@ namespace AutomateTestingLearningPlan.Testing
         /// </summary>
         /// <param name="inputPhoneNumber"></param>
         [Test]
-        [TestCase("0367520724")]
         public void ForgotPassword(string inputPhoneNumber)
         {
             SeleniumMethod.Click(driver, By.ClassName("right-field"));
