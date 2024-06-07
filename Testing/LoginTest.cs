@@ -116,9 +116,14 @@ namespace AutomateTestingLearningPlan.Testing
                 return null;
             }
         }
-        void RegisterAccount()
+    }
+    public class Register
+    {
+        public Register() { }
+        public Register(string _phoneNumber) 
         {
 
         }
+        void 
     }
 }
