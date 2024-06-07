@@ -86,8 +86,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Init\Init.cs" />
+    <Compile Include="LoginService.cs" />
     <Compile Include="Testing\LeaderEducationPlaning.cs" />
-    <Compile Include="Testing\Login.cs" />
+    <Compile Include="Testing\LoginTest.cs" />
     <Compile Include="Pages\LoginPage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
