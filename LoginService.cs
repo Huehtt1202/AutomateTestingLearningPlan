@@ -25,7 +25,6 @@ namespace AutomateTestingLearningPlan
             // Check action search
             try
             {
-                SeleniumMethod.GetElement(By locator);
                 IWebElement listAccount = GetElement(By.ClassName("list-account"));
                 if (listAccount == null)
                     return;
@@ -37,6 +36,18 @@ namespace AutomateTestingLearningPlan
                 IWebElement popupGuid = driver.FindElement(By.TagName("app-modal-common"));
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); };
+        }
+        private IWebElement GetElement(By locator)
+        {
+            try
+            {
+                IWebElement result = driver.FindElement(locator);
+                return result;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
     }
 }

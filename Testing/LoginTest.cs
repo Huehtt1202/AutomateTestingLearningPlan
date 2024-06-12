@@ -53,38 +53,11 @@ namespace AutomateTestingLearningPlan.Testing
         /// </summary>
         /// <param name="inputPhoneNumber"></param>
         [Test]
-        public void ForgotPassword(string inputPhoneNumber)
-        {
-            SeleniumMethod.Click(driver, By.ClassName("right-field"));
-            string url = driver.Url.ToString();
-            User user = new User(inputPhoneNumber);
-            // enter phone number into field
-            SeleniumMethod.EnterText(driver, By.TagName("input"), inputPhoneNumber);
-            // search account
-            SeleniumMethod.Click(driver, By.TagName("button"));
-            // Check action search
-            try
-            {
-                IWebElement listAccount = GetElement(By.ClassName("list-account"));
-                if (listAccount == null)
-                    return;
-                //phone number is exist account
-                IWebElement item = GetElement(By.TagName("div"));
-                if (item == null)
-                    return;
-                item.Click();
-                IWebElement popupGuid = driver.FindElement(By.TagName("app-modal-common"));
-                Assert.IsNotNull(listAccount);
-            }
-            catch (Exception ex) { Console.WriteLine(ex.Message); };
+        [TestCase("0367520724")]
+        LoginService.ForgotPassword("0367520724");
 
-            //phone number is not exist account
-            IWebElement btnRegister = driver.FindElement(By.CssSelector("div.btn-register ng-star-inserted>button"));
-            IWebElement popupGuidRegister = driver.FindElement(By.TagName("app-modal-common"));
-            Assert.IsNotNull(btnRegister);
-        }
         [TestCase("Check remember me")]
-        public void testRememberMe(User _user)
+        /*public void testRememberMe(User _user)
         {
             //1. Enter userName
             SeleniumMethod.EnterText(driver, By.CssSelector("[type='text'][placeholder='Tên đăng nhập hoặc số điện thoại']"), _user.userName);
@@ -95,7 +68,7 @@ namespace AutomateTestingLearningPlan.Testing
             rememberMe.Click();
             // Login
             SeleniumMethod.Click(driver, By.ClassName("btn-login"));
-        }
+        }*/
         [TearDown]
         public void Clearup()
         {

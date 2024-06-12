@@ -42,21 +42,5 @@ namespace AutomateTestingLearningPlan
             SelectElement selectOption = new SelectElement(driver.FindElement(locator));
             selectOption.SelectByIndex(no);
         }
-        public static void GetElement()
-        {
-
-            public IWebElement GetElement(By by)
-            {
-                try
-                {
-                    IWebElement result = driver.FindElement(by);
-                    return result;
-                }
-                catch (Exception)
-                {
-                    return null;
-                }
-            }
-        }
     }
 }
