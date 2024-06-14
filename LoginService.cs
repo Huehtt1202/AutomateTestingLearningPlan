@@ -13,7 +13,7 @@ namespace AutomateTestingLearningPlan
 {
     public class LoginService : Init1
     {
-        public void ForgotPassword(string inputPhoneNumber)
+        public virtual void ForgotPassword(string inputPhoneNumber)
         {
             SeleniumMethod.Click(driver, By.ClassName("right-field"));
             string url = driver.Url.ToString();
@@ -36,6 +36,10 @@ namespace AutomateTestingLearningPlan
                 IWebElement popupGuid = driver.FindElement(By.TagName("app-modal-common"));
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); };
+        }
+        public override void ForgotPassword(string inputPhoneNumber)
+        {
+
         }
         private IWebElement GetElement(By locator)
         {

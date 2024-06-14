@@ -53,8 +53,10 @@ namespace AutomateTestingLearningPlan.Testing
         /// </summary>
         /// <param name="inputPhoneNumber"></param>
         [Test]
-        [TestCase("0367520724")]
-        LoginService.ForgotPassword("0367520724");
+        public override void ForgotPassword()
+        {
+             
+        }
 
         [TestCase("Check remember me")]
         /*public void testRememberMe(User _user)
