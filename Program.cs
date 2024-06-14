@@ -5,23 +5,13 @@ using System;
 
 namespace AutomateTestingLearningPlan.Program
 {
-    [TestFixture]
     public class Program1
     {
         public static void Main(string[] args)
         {
-            /*try
-            {
-                Login login = new Login();
-                login.Init();
-                login.LoginByUser(User user);
-                login.Clearup();
-            }
-            catch (Exception ex)
-            {
-                Login login = new Login();
-                login.Clearup();
-            }*/
+            ForgotPasswordTest forgotpw = new ForgotPasswordTest();
+            forgotpw.SetUp();
+            forgotpw.FindAccountTest_PhoneNumberExist_FoundAccount();
         }
     }
 }

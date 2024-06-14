@@ -11,16 +11,11 @@ using OpenQA.Selenium.Chrome;
 
 namespace AutomateTestingLearningPlan
 {
-    public class SeleniumMethod : Init1
+    public class SeleniumMethod
     {
-        IWebDriver driver = new ChromeDriver();
         public static void Click(IWebDriver driver, By locator)
         {
-            try
-            {
-                driver.FindElement(locator).Click();
-            }
-            catch (Exception) { }
+            driver.FindElement(locator).Click();
         }
         public static void EnterText(IWebDriver driver, By locator, string text)
         {

@@ -12,8 +12,8 @@ namespace AutomateTestingLearningPlan.Init
 {
     [TestFixture]
     public class Init1
-    { 
-        public IWebDriver driver = new ChromeDriver();
+    {
+        public IWebDriver driver;
 
         [SetUp]
         public void SetUpTest()

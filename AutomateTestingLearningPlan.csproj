@@ -86,7 +86,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Init\Init.cs" />
-    <Compile Include="LoginService.cs" />
+    <Compile Include="ForgotPassword.cs" />
+    <Compile Include="Testing\ForgotPasswordTest.cs" />
     <Compile Include="Testing\LeaderEducationPlaning.cs" />
     <Compile Include="Testing\LoginTest.cs" />
     <Compile Include="Pages\LoginPage.cs" />
