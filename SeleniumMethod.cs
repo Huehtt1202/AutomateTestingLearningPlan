@@ -11,7 +11,7 @@ using OpenQA.Selenium.Chrome;
 
 namespace AutomateTestingLearningPlan
 {
-    public class SeleniumMethod
+    public class SeleniumMethod : Init1
     {
         public static void Click(IWebDriver driver, By locator)
         {

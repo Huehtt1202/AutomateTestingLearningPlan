@@ -15,7 +15,6 @@ namespace AutomateTestingLearningPlan.Testing
         [SetUp]
         public void SetUp()
         {
-            driver = new ChromeDriver();
             //Go to login page
             driver.Navigate().GoToUrl("https://app-v3.onluyen.vn/login");
             // Set timeouts for each step
