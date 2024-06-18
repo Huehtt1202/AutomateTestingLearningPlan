@@ -10,15 +10,15 @@ using System.Threading.Tasks;
 
 namespace AutomateTestingLearningPlan
 {
-    public class ForgotPassword : Init1
+    public class ForgotPassword
     {
+        IWebDriver driver;
         public bool FindAccount(string inputPhoneNumber)
         {
             SeleniumMethod.Click(driver, By.ClassName("right-field"));
-            string url = driver.Url.ToString();
             LoginScreen user = new LoginScreen(inputPhoneNumber);
             // enter phone number into field
-            SeleniumMethod.EnterText(driver, By.TagName("input"), inputPhoneNumber);
+            SeleniumMethod.EnterText(driver, By.CssSelector("input[type=text]"), inputPhoneNumber);
             // search account
             SeleniumMethod.Click(driver, By.TagName("button"));
             // Check action search

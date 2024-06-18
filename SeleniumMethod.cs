@@ -8,19 +8,28 @@ using OpenQA.Selenium.Support.UI;
 using System.Xml.Linq;
 using AutomateTestingLearningPlan.Init;
 using OpenQA.Selenium.Chrome;
+using NUnit.Framework;
 
 namespace AutomateTestingLearningPlan
 {
-    public class SeleniumMethod : Init1
+    public class SeleniumMethod
     {
+        IWebDriver driver;
         public static void Click(IWebDriver driver, By locator)
         {
-            driver.FindElement(locator).Click();
+            try
+            {
+                IWebElement element = driver.FindElement(locator);
+                element.Click();
+            }
+            catch(Exception ex) { };
         }
         public static void EnterText(IWebDriver driver, By locator, string text)
         {
-            driver.FindElement(locator).Click();
-            driver.FindElement(locator).SendKeys(text);
+            IWebElement element = driver.FindElement(locator);
+            element.Click();
+
+            element.SendKeys(text);
         }
         /* public static void EnterNumber(IWebDriver driver, By locator, int number)
          {
