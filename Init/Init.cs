@@ -18,7 +18,7 @@ namespace AutomateTestingLearningPlan.Init
         [SetUp]
         public void SetUpTest()
         {
-            driver = new ChromeDriver();
+            /*driver = new ChromeDriver();*/
             //Select browser
             // Set timeouts for each step
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
