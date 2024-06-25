@@ -14,7 +14,7 @@ namespace AutomateTestingLearningPlan.Testing
     [TestFixture]
     public class ForgotPasswordTest
     {
-            IWebDriver driver;
+        IWebDriver driver;
         [SetUp]
         public void SetUp()
         {

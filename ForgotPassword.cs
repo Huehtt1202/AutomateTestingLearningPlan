@@ -13,13 +13,13 @@ namespace AutomateTestingLearningPlan
     public class ForgotPassword
     {
         IWebDriver driver;
-        public bool FindAccount(string inputPhoneNumber)
+        public bool FindAccount(string PhoneNumber)
         {
-            SeleniumMethod.Click(driver, By.ClassName("right-field"));
-            LoginScreen user = new LoginScreen(inputPhoneNumber);
-            // enter phone number into field
-            SeleniumMethod.EnterText(driver, By.CssSelector("input[type=text]"), inputPhoneNumber);
-            // search account
+            IWebElement forgotPassword = driver.FindElement(By.CssSelector("div[class='right-field']"));
+            forgotPassword.Click();
+            IWebElement fieldEnterPhonenumber = driver.FindElement(By.CssSelector("input[type='text']"));
+            fieldEnterPhonenumber.SendKeys(PhoneNumber);
+            IWebElement btnSearch = driver.FindElement(By.TagName("button"));
             SeleniumMethod.Click(driver, By.TagName("button"));
             // Check action search
             try
@@ -27,8 +27,9 @@ namespace AutomateTestingLearningPlan
                 IWebElement listAccount = GetElement(By.ClassName("list-account"));
                 if (listAccount == null)
                     return false;
-                //phone number is exist account               
-                SeleniumMethod.Click(driver, By.TagName("div"));
+                //phone number is exist account
+                IWebElement item = driver.FindElement(By.TagName("div"));
+                item.Clear();
                 IWebElement popupGuid = driver.FindElement(By.TagName("app-modal-common"));
                 if (popupGuid == null) return false; //không hiện popup hướng dẫn lấy lại pw
             }
