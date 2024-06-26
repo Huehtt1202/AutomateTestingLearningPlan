@@ -14,7 +14,8 @@ namespace AutomateTestingLearningPlan.Testing
     [TestFixture]
     public class ForgotPasswordTest
     {
-        IWebDriver driver;
+        private IWebDriver driver;
+        private ForgotPassword _forgotPassword;
         [SetUp]
         public void SetUp()
         {
@@ -38,11 +39,11 @@ namespace AutomateTestingLearningPlan.Testing
         public void FindAccountTest_PhoneNumberExist_FoundAccount()
         {
             //Arrange
-            ForgotPassword forgotPassword = new ForgotPassword();
+            _forgotPassword = new ForgotPassword(driver);
             //Act
-            bool result = forgotPassword.FindAccount("0367520724");
+            bool result = _forgotPassword.FindAccount("0367520724");
             //Assert
-            Assert.IsFalse(result);
+            Assert.IsTrue(result);
         }
     }
 }
