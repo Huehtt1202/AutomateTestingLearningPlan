@@ -16,24 +16,22 @@ namespace AutomateTestingLearningPlan.Testing
     {
         private IWebDriver driver;
         private ForgotPassword _forgotPassword;
-        [SetUp]
-        public void SetUp()
+        private BaseSetup _setup;
+        public ForgotPasswordTest(IWebDriver driver)
         {
-            driver = new ChromeDriver();
-            //Go to login page
-            driver.Navigate().GoToUrl("https://app.onluyen.vn/login");
-            // Set timeouts for each step
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-            // Set timeouts for page load
-            driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(5);
-            // extend monitor
-            driver.Manage().Window.Maximize();
+            this.driver = driver;
+        }
+
+        [SetUp]
+        private void SetUp()
+        {
+            _setup.initilizeTestBaseSetup("Chrome", "https://app.onluyen.vn/login");
+
         }
         [TearDown]
-        public void TearDownTest()
+        public void TearDown()
         {
-            Thread.Sleep(1000);
-            driver.Quit();
+            _setup.initilizeTestBaseTearDown();
         }
         [Test]
         public void FindAccountTest_PhoneNumberExist_FoundAccount()
@@ -44,6 +42,16 @@ namespace AutomateTestingLearningPlan.Testing
             bool result = _forgotPassword.FindAccount("0367520724");
             //Assert
             Assert.IsTrue(result);
+        }
+        [Test]
+        public void FindAccountTest_PhoneNumberNotExist_FoundAccount()
+        {
+            //Arrange
+            _forgotPassword = new ForgotPassword(driver);
+            //Act
+            bool result = _forgotPassword.FindAccount("0123456789");
+            //Assert
+            Assert.IsFalse(result);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using AutomateTestingLearningPlan.Init;
+﻿/*using AutomateTestingLearningPlan.Init;
 using AutomateTestingLearningPlan.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -22,11 +22,11 @@ namespace AutomateTestingLearningPlan.Testing
             driver = new ChromeDriver();
             //Go to login page
             driver.Navigate().GoToUrl("https://app-v3.onluyen.vn/login");
-            /*// Set timeouts for each step
+            *//*// Set timeouts for each step
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(4);
             // Set timeouts for page load
             driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(3);
-            // extend monitor*/
+            // extend monitor*//*
             driver.Manage().Window.Maximize();
         }
         [Test]
@@ -51,7 +51,7 @@ namespace AutomateTestingLearningPlan.Testing
         /// Check function forgot password with phonenumber exist
         /// </summary>
         /// <param name="inputPhoneNumber"></param>
-        /*[Test]*/
+        *//*[Test]*/
         /*public void ForgotPasswordTest_PhoneNumberExist_FoundAccount()
         {
             //Arrange
@@ -80,7 +80,8 @@ namespace AutomateTestingLearningPlan.Testing
         {
             Thread.Sleep(2000);
             driver.Quit();
-        }*/
+        }*//*
 
     }
 }
+*/
