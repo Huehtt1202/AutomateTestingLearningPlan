@@ -3,8 +3,10 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -15,7 +17,7 @@ namespace AutomateTestingLearningPlan.Testing
     public class ForgotPasswordTest
     {
         private IWebDriver driver;
-        private ForgotPassword _forgotPassword;
+        private ForgotPasswordPage _forgotPassword;
         private BaseSetup _setup;
         public ForgotPasswordTest(IWebDriver driver)
         {
@@ -37,17 +39,17 @@ namespace AutomateTestingLearningPlan.Testing
         public void FindAccountTest_PhoneNumberExist_FoundAccount()
         {
             //Arrange
-            _forgotPassword = new ForgotPassword(driver);
+            _forgotPassword = new ForgotPasswordPage(driver);
             //Act
             bool result = _forgotPassword.FindAccount("0367520724");
             //Assert
             Assert.IsTrue(result);
         }
         [Test]
-        public void FindAccountTest_PhoneNumberNotExist_FoundAccount()
+        public void FindAccountTest_PhoneNumberNotExist_NotFoundAccount()
         {
             //Arrange
-            _forgotPassword = new ForgotPassword(driver);
+            _forgotPassword = new ForgotPasswordPage(driver);
             //Act
             bool result = _forgotPassword.FindAccount("0123456789");
             //Assert

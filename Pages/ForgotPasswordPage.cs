@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace AutomateTestingLearningPlan
 {
-    public class ForgotPassword
+    public class ForgotPasswordPage
     {
         private IWebDriver driver;
         private ActionCommon act;
 
-        public ForgotPassword(IWebDriver driver)
+        public ForgotPasswordPage(IWebDriver driver)
         {
             this.driver = driver;
         }

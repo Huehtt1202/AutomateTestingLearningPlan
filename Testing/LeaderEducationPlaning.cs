@@ -1,4 +1,4 @@
-﻿/*using AutomateTestingLearningPlan.Pages;
+﻿using AutomateTestingLearningPlan.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
@@ -42,8 +42,8 @@ namespace AutomateTestingLearningPlan.Testing
             SeleniumMethod.Click(driver, By.CssSelector("a.btn btn-add ripple"));
             // Enter plan name
             SeleniumMethod.EnterText(driver, By.CssSelector("input.planName"), "lEP of the Math");
-            *//*// Click to droplist field
-            SeleniumMethod.Click(driver, By.CssSelector("div[role=combobox]"));*//*
+            // Click to droplist field
+            SeleniumMethod.Click(driver, By.CssSelector("div[role=combobox]"));
             // Enter keyword into input field
             IWebElement combobobox = driver.FindElement(By.CssSelector("div[role=combobox]"));
             combobobox.Click();
@@ -55,4 +55,3 @@ namespace AutomateTestingLearningPlan.Testing
         }
     }
 }
-*/

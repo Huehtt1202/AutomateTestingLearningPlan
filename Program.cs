@@ -9,9 +9,7 @@ namespace AutomateTestingLearningPlan.Program
     {
         public static void Main(string[] args)
         {
-            ForgotPasswordTest forgotpw = new ForgotPasswordTest();
-            forgotpw.SetUp();
-            forgotpw.FindAccountTest_PhoneNumberExist_FoundAccount();
+            
         }
     }
 }

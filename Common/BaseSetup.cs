@@ -21,6 +21,8 @@ namespace AutomateTestingLearningPlan.Init
             {
                 case "Chrome":
                     initChromeDriver(webUrl); break;
+                /*case "CocCoc":
+                    initChromeDriver(webUrl); break;*/
                 default: throw new ArgumentException();
             }
         }
@@ -33,6 +35,15 @@ namespace AutomateTestingLearningPlan.Init
             driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(5);
             return driver;
         }
+        /*private IWebDriver initCocCocDriver(string webUrl)
+        {
+            driver = new CocCoc();
+            driver.Manage().Window.Maximize();
+            driver.Navigate().GoToUrl(webUrl);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(5);
+            return driver;
+        }*/
         public void initilizeTestBaseSetup(string browserType, string webUrl)
         {
             setDriver(browserType, webUrl);

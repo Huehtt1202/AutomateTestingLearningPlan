@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AutomateTestingLearningPlan.Init;
+using OpenQA.Selenium;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,18 +9,20 @@ using System.Threading.Tasks;
 namespace AutomateTestingLearningPlan.Pages
 {
 
-    public class LoginScreen
+    public class LoginPage
     {
-        public string userName { get; set; }
-        public string password { get; set; }
-        public string phoneNumber { get; set; }
-        public LoginScreen(string _userName, string _password) 
-        { 
-            this.userName = _userName;
-            this.password = _password;
+        private IWebDriver driver;
+        private ActionCommon act;
+
+        public LoginPage(IWebDriver driver)
+        {
+            this.driver = driver;
         }
-        public LoginScreen(string _phoneNumber) {
-            this.phoneNumber = _phoneNumber;
+        public void LoginByUser(string username, string password)
+        {
+            act.actEnterText(By.CssSelector("input[type=text]"), username); //enter username into input field
+            act.actEnterText(By.CssSelector("input[type=password]"), password); //enter pw into input field
+            act.actClick(By.ClassName("btn-login"));
         }
     }
 }
