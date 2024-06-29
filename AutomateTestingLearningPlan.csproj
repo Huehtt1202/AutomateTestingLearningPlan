@@ -88,6 +88,7 @@
     <Compile Include="Common\BaseSetup.cs" />
     <Compile Include="Pages\ForgotPasswordPage.cs" />
     <Compile Include="Pages\ManageSpecializePage.cs" />
+    <Compile Include="Pages\UICommon.cs" />
     <Compile Include="Testing\ForgotPasswordTest.cs" />
     <Compile Include="Testing\LeaderEducationPlaning.cs" />
     <Compile Include="Testing\LoginTest.cs" />

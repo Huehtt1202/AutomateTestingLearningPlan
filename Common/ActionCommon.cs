@@ -64,6 +64,15 @@ namespace AutomateTestingLearningPlan
                 return null;
             }
         }
+        public IList<IWebElement> GetElements(By locator)
+        {
+            try
+            {
+                IList<IWebElement> listElement = driver.FindElements(locator);
+                return listElement;
+            }
+            catch (Exception ex) { return null; }
+        }
         /*public static void SelectedCheckBox(IWebDriver driver, By locator)
         {
             // one field checkbox
