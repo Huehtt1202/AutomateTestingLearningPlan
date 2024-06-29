@@ -96,6 +96,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Common\ActionCommon.cs" />
+    <Compile Include="Testing\ManageSpecializeTesting.cs" />
+    <Compile Include="Testing\UICommonTesting.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
