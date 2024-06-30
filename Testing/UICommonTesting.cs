@@ -15,6 +15,7 @@ namespace AutomateTestingLearningPlan.Testing
         private IWebDriver driver;
         private BaseSetup _setUp;
         private LoginPage _login;
+        private UICommon _uiCommon;
         public UICommonTesting(IWebDriver driver)
         {
             this.driver = driver;
@@ -29,6 +30,17 @@ namespace AutomateTestingLearningPlan.Testing
         public void CleanUp()
         {
             _setUp.initilizeTestBaseTearDown();
+        }
+        [Test]
+        public void NavigateToFunctionTest_NavigateOnSidebar_Successfully(string title)
+        {
+            //Arrange
+            _uiCommon = new UICommon(driver);
+            //act
+            _uiCommon.SidebarTeacher();
+            //Assert
+            Assert.
+
         }
     }
 }
