@@ -12,6 +12,7 @@ namespace AutomateTestingLearningPlan.Pages
         private IWebDriver driver;
         private ActionCommon _act;
         private LoginPage _login;
+        private UICommon _uiCommon;
         public ManageSpecializePage (IWebDriver driver)
         {
             this.driver = driver;
@@ -19,14 +20,15 @@ namespace AutomateTestingLearningPlan.Pages
         /// <summary>
         /// Choosing function on sidebar
         /// </summary>
-        public void NavigateToManageSpecializePage()
+        public void ManageSpecializeWithMasterRole(string functionName)
         {
-            //Extend sidebar after login successfully
-
-            //Navigate to function 
-
+            IList<IWebElement> listFunction = _act.GetElements(By.CssSelector("div.list-function>>div"));
+            for(int i = 0; i < listFunction.Count; i++)
+            {
+                IWebElement function = listFunction[i];
+                if (functionName.Equals(function.GetCssValue("p"))) function.Click();
+            }
         }
-        public void NavigateTo_LeaderEducationPage() { }
 
     }
 }
