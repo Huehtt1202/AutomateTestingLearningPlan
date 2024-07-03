@@ -14,6 +14,8 @@ namespace AutomateTestingLearningPlan.Testing
     {
         private IWebDriver driver;
         private BaseSetup _setUp;
+        private UICommon _uiCommon;
+        private ManageSpecializePage _msPage;
         public ManageSpecializeTesting(IWebDriver driver)
         {
             this.driver = driver;
@@ -27,6 +29,16 @@ namespace AutomateTestingLearningPlan.Testing
         public void CleanUp()
         {
             _setUp.initilizeTestBaseTearDown();
+        }
+        [Test]
+        private void NavigateToFuncOfMSWithLeaderRoleTest_ClickOnTitle_AccessOn() 
+        {
+            //Arrange
+            _uiCommon = new UICommon(driver);
+            _msPage = new ManageSpecializePage(driver);
+            //Act
+            _uiCommon.NavigateToFeatureOfTeacherOnSidebar("Quản lý chuyên môn");
+            _msPage.NavigateToFuncOfMSWithLeaderRole2(" Nộp kế hoạch giáo dục của tổ chuyên môn ");
         }
     }
 }

@@ -32,7 +32,7 @@ namespace AutomateTestingLearningPlan.Pages
             }
             return true;
         }
-        public void NavigateOnFeatureOfTeacherOnSidebar(string featureTitle)
+        public void NavigateToFeatureOfTeacherOnSidebar(string featureTitle)
         {
             switch (featureTitle)
             {
