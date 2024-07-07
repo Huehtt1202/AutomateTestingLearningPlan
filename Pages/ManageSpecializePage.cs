@@ -61,7 +61,7 @@ namespace AutomateTestingLearningPlan.Pages
             {
                 case " Nộp kế hoạch giáo dục của tổ chuyên môn ":
                     {
-                        IWebElement groupFunction = _act.GetElement(By.XPath("//")
+                        IWebElement groupFunction = _act.GetElement(By.XPath("//"));
                         IWebElement Function = _act.GetElement(By.XPath("//p[Text()= ' Nộp kế hoạch giáo dục của tổ chuyên môn '"));
                         break;
                     } 
