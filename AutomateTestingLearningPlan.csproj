@@ -87,6 +87,7 @@
   <ItemGroup>
     <Compile Include="Common\BaseSetup.cs" />
     <Compile Include="Pages\ForgotPasswordPage.cs" />
+    <Compile Include="Pages\LeaderEducationPlanPage.cs" />
     <Compile Include="Pages\ManageSpecializePage.cs" />
     <Compile Include="Pages\UICommon.cs" />
     <Compile Include="Testing\ForgotPasswordTest.cs" />

@@ -42,7 +42,7 @@ namespace AutomateTestingLearningPlan.Pages
         /// Access to a function of the manage specialize feature which is selected by Account has multiple role
         /// </summary>
         /// <param name="functionTitle"></param>
-        public void NavigateToFuncOf(string trigger)
+        /*public void NavigateToFuncOf(string trigger)
         {
             IWebElement FunctionsOfMaster = _act.GetElement(By.CssSelector("div.manage-specialize div:nth-of-type(2)"));
             IList<IWebElement> listFunction = FunctionsOfMaster.FindElements(By.CssSelector("div.list-function>div"));
@@ -56,12 +56,12 @@ namespace AutomateTestingLearningPlan.Pages
                     return;
                 }
             }
-        }
+        }*/
         /// <summary>
         /// Access to a function of the manage specialize feature which is selected by Account has multiple role
         /// </summary>
         /// <param name="functionTitle">Enter title need to navigate</param>
-        public void NavigateToFuncOfMSWithLeaderRole1(string functionTitle)
+        /*public void NavigateToFuncOfMSWithLeaderRole1(string functionTitle)
         {
             IWebElement FunctionsOfMaster = _act.GetElement(By.CssSelector("div.manage-specialize div:nth-of-type(2)"));
             IList<IWebElement> listFunction = FunctionsOfMaster.FindElements(By.CssSelector("div.list-function>div"));
@@ -75,7 +75,7 @@ namespace AutomateTestingLearningPlan.Pages
                     return;
                 }
             }
-        }
+        }*/
         public void NavigateToFuncOfMSWithLeaderRole2(string functionTitle)
         {
             switch (functionTitle)
@@ -84,6 +84,7 @@ namespace AutomateTestingLearningPlan.Pages
                     {
                         IWebElement groupFunction = _act.GetElement(By.XPath("//"));
                         IWebElement Function = _act.GetElement(By.XPath("//p[Text()= ' Nộp kế hoạch giáo dục của tổ chuyên môn '"));
+                        Function.Click();
                         break;
                     } 
                 case " Duyệt Kế hoạch giáo dục của giáo viên ":
