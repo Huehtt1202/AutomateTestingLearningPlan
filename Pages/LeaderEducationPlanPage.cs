@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,15 +19,19 @@ namespace AutomateTestingLearningPlan.Pages
         {
             this.driver = driver;
         }
-        public void CreationNewLEP(string grade)
+        public void CreationNewLEP(string grade, DateTime expiredDate)
         {
             _manageSpecialize.NavigateToFuncOfMSWithLeaderRole2("Nộp kế hoạch giáo dục của tổ chuyên môn");
             _act.actClick(By.ClassName("btn btn-add ripple"));
             //Switch popup to enter data 
             //Enter name LEP
             _act.actEnterText(By.CssSelector("input[placeholder=Nhập tên kế hoạch giáo dục...]"), "KHGD test");
-            //Enter grade
-            _act.actEnterText(By.CssSelector("input[]"), grade);
+            // choosing grade for LEP
+            IWebElement gradeDroplist = driver.FindElement(By.XPath("//*[@for='subject']//parent::div"));
+            SelectElement dropdownlist = new SelectElement(gradeDroplist);
+            dropdownlist.SelectByText(grade);
+            // Enter expiredDate to improved
+            _act.actEnterDateTime(By.CssSelector("input[placeholder=\"Chọn hạn duyệt kế hoạch giáo dục\"]"), expiredDate);
         }
     }
 }

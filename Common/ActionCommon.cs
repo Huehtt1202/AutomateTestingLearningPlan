@@ -52,6 +52,18 @@ namespace AutomateTestingLearningPlan
             }
             catch (Exception ex) { };
         }
+        public void actEnterDateTime(By locator, DateTime date)
+        {
+            try
+            {
+                IWebElement element = driver.FindElement(locator);
+                element.Click();
+                string dataElenment = element.GetAttribute("Value");
+                if (dataElenment != null) { element.Clear(); }
+                element.SendKeys(number.ToString());
+            }
+            catch (Exception ex) { };
+        }
         public IWebElement GetElement(By locator)
         {
             try
