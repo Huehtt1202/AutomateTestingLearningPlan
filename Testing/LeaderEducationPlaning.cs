@@ -8,50 +8,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutomateTestingLearningPlan.Init;
 
 namespace AutomateTestingLearningPlan.Testing
 {
     internal class LeaderEducationPlaning
     {
-        IWebDriver driver = new ChromeDriver();
-        private Login login;
-        private User user;
+        private IWebDriver driver;
+        private LeaderEducationPlanPage _lep;
+        private BaseSetup _setup;
+        private LoginPage _login;
+        public LeaderEducationPlaning(IWebDriver driver)
+        {
+            this.driver = driver;
+        }
         [SetUp]
         public void Init()
         {
-            Login login = new Login();
-            login.ExercuteLogin(user);
-            this.user = new User();
-            user.userName = "huehtt34@ed.onluyen.vn";
-            user.password = "123123";
-            //Go to LEP page
-            driver.Navigate().GoToUrl("https://app-v3.onluyen.vn/manage-specialize");
-            // Set timeouts for each step
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(4);
-            // Set timeouts for page load
-            driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(3);
-            // extend monitor
-            driver.Manage().Window.Maximize();
+            _setup.initilizeTestBaseSetup("Chrome", "https://app.onluyen.vn/login");
         }
         [Test]
-        public void CreateLEP()
+        public void CreationLEPforTieuHocTest_TemPlateTieuHoc_CreateSuccessfully(string username, string password)
         {
-            // Go to Create-LEP page
-            SeleniumMethod.Click(driver, By.PartialLinkText(" Nộp kế hoạch giáo dục của tổ chuyên môn "));
-            // Open creation LEP Model
-            SeleniumMethod.Click(driver, By.CssSelector("a.btn btn-add ripple"));
-            // Enter plan name
-            SeleniumMethod.EnterText(driver, By.CssSelector("input.planName"), "lEP of the Math");
-            // Click to droplist field
-            SeleniumMethod.Click(driver, By.CssSelector("div[role=combobox]"));
-            // Enter keyword into input field
-            IWebElement combobobox = driver.FindElement(By.CssSelector("div[role=combobox]"));
-            combobobox.Click();
-            //IWebElement inputArea = combobobox.FindElement(By.TagName("input"));
-            SeleniumMethod.EnterText(driver, By.TagName("input"), "TIENG ANH");
-            // Select option on droplist suggest
-            SeleniumMethod.SelectByIndex(driver, By.CssSelector("dev[role=listbox]"), 0);
-
+            //Arrange
+            _lep = new LeaderEducationPlanPage(driver);
+            //act
+            _login.LoginByUser(username, password);
+            DateTime dateTime = DateTime.Now;
+            _lep.CreationNewLEP("0", "2", dateTime, "Tiểu Học");
+            //assert
+            IWebElement messageRespone = driver.FindElement(By.)
+            string respone = driver.
         }
     }
 }

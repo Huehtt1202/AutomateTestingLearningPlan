@@ -38,7 +38,8 @@ namespace AutomateTestingLearningPlan
                 string dataElenment = element.GetAttribute("Value");
                 if (dataElenment != null) { element.Clear(); }
                 element.SendKeys(text);
-            } catch (Exception ex) { };
+            }
+            catch (Exception ex) { };
         }
         public void actEnterNumber(By locator, int number)
         {
@@ -58,9 +59,9 @@ namespace AutomateTestingLearningPlan
             {
                 IWebElement element = driver.FindElement(locator);
                 element.Click();
-                string dataElenment = element.GetAttribute("Value");
+                string dataElenment = element.Text;
                 if (dataElenment != null) { element.Clear(); }
-                element.SendKeys(number.ToString());
+                element.SendKeys(date.ToShortDateString());
             }
             catch (Exception ex) { };
         }
@@ -94,6 +95,16 @@ namespace AutomateTestingLearningPlan
         {
             SelectElement selectOption = new SelectElement(driver.FindElement(locator));
             selectOption.SelectByIndex(no);
+        }
+        public void SelectByText(By locator, string text)
+        {
+            try
+            {
+                IWebElement element = driver.FindElement(locator);
+                SelectElement dropdownlist = new SelectElement(element);
+                dropdownlist.SelectByText(text);
+            }
+            catch (Exception ex) { }
         }
     }
 }
