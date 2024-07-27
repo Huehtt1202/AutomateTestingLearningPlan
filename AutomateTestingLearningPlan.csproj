@@ -62,6 +62,9 @@
       <HintPath>packages\NUnitTestAdapter.WithFramework.2.0.0\lib\NUnit.VisualStudio.TestAdapter.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="SeleniumExtras.WaitHelpers, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\DotNetSeleniumExtras.WaitHelpers.3.11.0\lib\net45\SeleniumExtras.WaitHelpers.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -91,7 +94,7 @@
     <Compile Include="Pages\ManageSpecializePage.cs" />
     <Compile Include="Pages\UICommon.cs" />
     <Compile Include="Testing\ForgotPasswordTest.cs" />
-    <Compile Include="Testing\LeaderEducationPlaning.cs" />
+    <Compile Include="Testing\LeaderEducationPlanTest.cs" />
     <Compile Include="Testing\LoginTest.cs" />
     <Compile Include="Pages\LoginPage.cs" />
     <Compile Include="Program.cs" />

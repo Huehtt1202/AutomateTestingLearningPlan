@@ -62,3 +62,4 @@ D:\AutomateTestingLearningPlan\obj\Debug\AutomateTestingLearningPlan.csproj.Core
 D:\AutomateTestingLearningPlan\obj\Debug\AutomateTestingLearningPlan.csproj.CopyComplete
 D:\AutomateTestingLearningPlan\obj\Debug\AutomateTestingLearningPlan.exe
 D:\AutomateTestingLearningPlan\obj\Debug\AutomateTestingLearningPlan.pdb
+D:\AutomateTestingLearningPlan\bin\Debug\SeleniumExtras.WaitHelpers.dll

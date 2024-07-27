@@ -55,7 +55,7 @@ namespace AutomateTestingLearningPlan.Testing
             _login.LoginByUser(inputUserName, inputPassword);
             //Assert
             string urlCurrently = driver.Url.ToString();
-            string urlLogin = "https://app-v3.onluyen.vn/login/";
+            string urlLogin = "https://app.onluyen.vn/login/";
             Assert.IsFalse(urlCurrently.Equals(urlLogin));
         }/*
         //[TestCase("Check remember me")]
