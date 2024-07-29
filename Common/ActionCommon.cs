@@ -27,7 +27,7 @@ namespace AutomateTestingLearningPlan
                 IWebElement element = driver.FindElement(locator);
                 element.Click();
             }
-            catch (Exception ex) { };
+            catch (Exception ex) { Console.Write("fail"); };
         }
         public void actEnterText(By locator, string text)
         {
@@ -39,7 +39,7 @@ namespace AutomateTestingLearningPlan
                 if (dataElenment != null) { element.Clear(); }
                 element.SendKeys(text);
             }
-            catch (Exception ex) { };
+            catch (Exception ex) { Console.Write("fail"); };
         }
         public void actEnterNumber(By locator, int number)
         {
@@ -51,7 +51,7 @@ namespace AutomateTestingLearningPlan
                 if (dataElenment != null) { element.Clear(); }
                 element.SendKeys(number.ToString());
             }
-            catch (Exception ex) { };
+            catch (Exception ex) { Console.Write("fail"); };
         }
         public void actEnterDateTime(By locator, DateTime date)
         {
@@ -63,7 +63,7 @@ namespace AutomateTestingLearningPlan
                 if (dataElenment != null) { element.Clear(); }
                 element.SendKeys(date.ToShortDateString());
             }
-            catch (Exception ex) { };
+            catch (Exception ex) { Console.Write("fail"); };
         }
         public IWebElement GetElement(By locator)
         {
@@ -104,7 +104,7 @@ namespace AutomateTestingLearningPlan
                 SelectElement dropdownlist = new SelectElement(element);
                 dropdownlist.SelectByText(text);
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { Console.Write("fail"); }
         }
     }
 }
