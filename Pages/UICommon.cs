@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.DevTools.V122.DOM;
 using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;

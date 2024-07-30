@@ -418,27 +418,59 @@
             Move the browser back
             </summary>
         </member>
+        <member name="M:OpenQA.Selenium.Support.Events.EventFiringWebDriver.EventFiringNavigation.BackAsync">
+            <summary>
+            Move the browser back as an asynchronous task.
+            </summary>
+            <returns>A task object representing the asynchronous operation</returns>
+        </member>
         <member name="M:OpenQA.Selenium.Support.Events.EventFiringWebDriver.EventFiringNavigation.Forward">
             <summary>
-            Move the browser forward
+            Move a single "item" forward in the browser's history.
             </summary>
+        </member>
+        <member name="M:OpenQA.Selenium.Support.Events.EventFiringWebDriver.EventFiringNavigation.ForwardAsync">
+            <summary>
+            Move a single "item" forward in the browser's history as an asynchronous task.
+            </summary>
+            <returns>A task object representing the asynchronous operation.</returns>
         </member>
         <member name="M:OpenQA.Selenium.Support.Events.EventFiringWebDriver.EventFiringNavigation.GoToUrl(System.String)">
             <summary>
-            Navigate to a url for your test
+            Navigate to a url.
             </summary>
             <param name="url">String of where you want the browser to go to</param>
         </member>
+        <member name="M:OpenQA.Selenium.Support.Events.EventFiringWebDriver.EventFiringNavigation.GoToUrlAsync(System.String)">
+            <summary>
+            Navigate to a url as an asynchronous task.
+            </summary>
+            <param name="url">String of where you want the browser to go.</param>
+            <returns>A task object representing the asynchronous operation.</returns>
+        </member>
         <member name="M:OpenQA.Selenium.Support.Events.EventFiringWebDriver.EventFiringNavigation.GoToUrl(System.Uri)">
             <summary>
-            Navigate to a url for your test
+            Navigate to a url.
             </summary>
             <param name="url">Uri object of where you want the browser to go to</param>
         </member>
+        <member name="M:OpenQA.Selenium.Support.Events.EventFiringWebDriver.EventFiringNavigation.GoToUrlAsync(System.Uri)">
+            <summary>
+            Navigate to a url as an asynchronous task.
+            </summary>
+            <param name="url">Uri object of where you want the browser to go.</param>
+            <returns>A task object representing the asynchronous operation.</returns>
+        </member>
         <member name="M:OpenQA.Selenium.Support.Events.EventFiringWebDriver.EventFiringNavigation.Refresh">
             <summary>
-            Refresh the browser
+            Reload the current page.
             </summary>
+        </member>
+        <member name="M:OpenQA.Selenium.Support.Events.EventFiringWebDriver.EventFiringNavigation.RefreshAsync">
+            <summary>
+            Reload the current page as an asynchronous task.
+            </summary>
+            <returns>A task object representing the asynchronous operation.</returns>
         </member>
         <member name="T:OpenQA.Selenium.Support.Events.EventFiringWebDriver.EventFiringOptions">
             <summary>
